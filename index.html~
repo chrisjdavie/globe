@@ -81,7 +81,13 @@ queue()
     .await(ready);
 
 function vary_colour(a){
-    return  "url(#hover_highlight)";
+    if ( a == "bob" ) {
+        var test_str = "url(#hover_highlight)";
+    }
+    if ( a == "tim" ) {
+        var test_str = "url(#globe_highlight)";
+    }
+    return test_str;
 }
 
 function ready(error, world, places) {
@@ -187,8 +193,7 @@ function ready(error, world, places) {
        .selectAll("path")
        .data(topojson.object(world, world.objects.countries).geometries)
        .enter().append("path") 
-       .attr("d", path)
-       .style("fill", "url(#hover_highlight)");
+       .attr("d", path)timbob"));
 
     position_labels();
 }
